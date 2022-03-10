@@ -6,6 +6,8 @@ import Data from './data.js';
 import Detail from './Detail.js';
 import axios from 'axios';
 
+import Cart from './Cart';
+
 import { Link, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -82,6 +84,10 @@ function App() {
 
         <Route exact path="/detail/:id">
           <Detail shoes={shoes} 재고={재고} 재고변경={재고변경} />
+        </Route>
+
+        <Route path="/cart">
+          <Cart></Cart>
         </Route>
       </Switch>
     </>

@@ -1,5 +1,6 @@
 /* eslint-disable */
 import React, { useState, useEffect } from 'react';
+import { connect } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -35,7 +36,7 @@ function Detail(props) {
   return (
     <>
       <박스>
-        <제목>Detial</제목>
+        <제목>Detail</제목>
       </박스>
 
       {inputData}
@@ -67,7 +68,12 @@ function Detail(props) {
             <button
               className="btn btn-danger"
               onClick={() => {
-                props.재고변경();
+                props.재고변경([9, 11, 12]);
+                props.dispatch({
+                  type: '항목추가',
+                  payload: { id: 2, name: '새로운상품', quan: 1 },
+                });
+                history.push('/cart');
               }}
             >
               주문하기
@@ -95,4 +101,15 @@ function Info(props) {
   );
 }
 
-export default Detail;
+// export default Detail;
+
+function state를props화(state) {
+  console.log(state);
+  return {
+    state: state.reducer,
+    alert열렸니: state.reducer2,
+  };
+}
+
+// export default Cart;
+export default connect(state를props화)(Detail);
