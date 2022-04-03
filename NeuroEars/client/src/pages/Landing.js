@@ -1,35 +1,35 @@
-import React, { useState } from "react";
-import LandingImage from "../images/landingimage.jpg";
+import React, { useState } from 'react';
+import LandingImage from '../images/landingimage.jpg';
 // import landingVideo from "../videos/BrainNeurons.mp4";
 // import phoneLanding from "../videos/BrainNeurons.gif";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from 'react-router-dom';
 
-const Landing = ({ landingOn, setLandingOn }) => {
+function Landing() {
   return (
     <>
       <div
-        className='landing-box'
+        className="landing-box"
         style={{ backgroundImage: `url(${LandingImage})` }}
       >
         {/* <img src={LandingImage} alt={LandingImage} /> */}
-        <form action=''>
-          <div className='login-info'>
+        <form action="">
+          <div className="login-info">
             <h1>LOGO</h1>
-            <div className='buttonBox'>
-              <Link to='/login'>
-                <div className='logIn'>
+            <div className="buttonBox">
+              <Link to="/login">
+                <div className="logIn">
                   <button
-                    className='logInBtn'
-                    onClick={() => setLandingOn(false)}
+                    className="logInBtn"
+                    // onClick={() => setLandingOn(false)}
                   >
                     LogIn
                   </button>
                 </div>
               </Link>
               <p>Doesn't have an account?</p>
-              <Link to='/signup'>
-                <div className='signUp'>
-                  <button className='signUpBtn'>SignUp</button>
+              <Link to="/signup">
+                <div className="signUp">
+                  <button className="signUpBtn">SignUp</button>
                 </div>
               </Link>
             </div>
@@ -51,6 +51,6 @@ const Landing = ({ landingOn, setLandingOn }) => {
       </div>
     </>
   );
-};
+}
 
 export default Landing;

@@ -29,9 +29,7 @@ function MainPage() {
                 <p>Contact us</p>
               </li>
               <li>
-                <Link to="mypage">
-                  <p>My Page</p>
-                </Link>
+                <p>My Page</p>
               </li>
             </ul>
           </div>

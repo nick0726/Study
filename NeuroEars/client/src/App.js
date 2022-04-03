@@ -26,10 +26,6 @@ function App() {
         <MainPage></MainPage>
       </Route>
 
-      <Route path="/mypage">
-        <div>MyPage 계정페이지에요</div>
-      </Route>
-
       {/*
       <Route path='/'>
         <div>로그인한페이지에요</div>

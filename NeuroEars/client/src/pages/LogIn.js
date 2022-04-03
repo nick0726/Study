@@ -1,46 +1,46 @@
-import React from "react";
-import LandingImage from "../images/landingimage.jpg";
+import React from 'react';
+import LandingImage from '../images/landingimage.jpg';
 // import landingVideo from "../videos/BrainNeurons.mp4";
 // import phoneLanding from "../videos/BrainNeurons.gif";
-import { Link, Route, Switch } from "react-router-dom";
+import { Link, Route, Switch } from 'react-router-dom';
 
 function LogIn() {
   return (
     <>
       <div
-        className='landing-box'
+        className="landing-box"
         style={{ backgroundImage: `url(${LandingImage})` }}
       >
         {/* <img src={LandingImage} alt={LandingImage} /> */}
-        <form action=''>
-          <div className='login-info'>
+        <form action="">
+          <div className="login-info">
             <h1>LOGO</h1>
-            <div className='input-area'>
+            <div className="input-area">
               <input
-                type='text'
-                name='id'
-                id='id'
-                autoComplete='off'
+                type="text"
+                name="id"
+                id="id"
+                autoComplete="off"
                 required
               ></input>
-              <label for='id'>User Name</label>
+              <label for="id">User Name</label>
               <input
-                type='password'
-                name='pw'
-                id='pw'
-                autoComplete='off'
+                type="password"
+                name="pw"
+                id="pw"
+                autoComplete="off"
                 required
               ></input>
-              <label for='pw'>Password</label>
+              <label for="pw">Password</label>
             </div>
-            <div className='buttonBox'>
-              <div className='logIn'>
-                <button className='logInBtn'>LogIn</button>
+            <div className="buttonBox">
+              <div className="logIn">
+                <button className="logInBtn">LogIn</button>
               </div>
               <p>Doesn't have an account?</p>
-              <Link to='/signup'>
-                <div className='signUp'>
-                  <button className='signUpBtn'>SignUp</button>
+              <Link to="/signup">
+                <div className="signUp">
+                  <button className="signUpBtn">SignUp</button>
                 </div>
               </Link>
             </div>

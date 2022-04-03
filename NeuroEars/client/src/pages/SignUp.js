@@ -4,7 +4,30 @@ import LandingImage from '../images/landingimage.jpg';
 // import phoneLanding from "../videos/BrainNeurons.gif";
 import { Link, Route, Switch } from 'react-router-dom';
 
-const SignUp = ({ SignUp, SignUpOn }) => {
+function SignUp() {
+  const [name, setName] = useState('');
+  const [id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+
+  async function registerUser(event) {
+    event.preventDefault();
+    const resopnse = await fetch('http://localhost:3000/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        id,
+        password,
+        name,
+        email,
+      }),
+    });
+    const data = await resopnse.json();
+    console.log(data);
+  }
+
   return (
     <>
       <div
@@ -12,11 +35,13 @@ const SignUp = ({ SignUp, SignUpOn }) => {
         style={{ backgroundImage: `url(${LandingImage})` }}
       >
         {/* <img src={LandingImage} alt={LandingImage} /> */}
-        <form action="">
+        <form onSubmit={registerUser}>
           <div className="login-info">
             <h1>LOGO</h1>
             <div className="input-area">
               <input
+                value={id}
+                onChange={(e) => setId(e.target.value)}
                 type="text"
                 name="id"
                 id="id"
@@ -25,6 +50,8 @@ const SignUp = ({ SignUp, SignUpOn }) => {
               ></input>
               <label for="id">User Name(ID)</label>
               <input
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 type="password"
                 name="pw"
                 id="pw"
@@ -33,6 +60,8 @@ const SignUp = ({ SignUp, SignUpOn }) => {
               ></input>
               <label for="pw">Password</label>
               <input
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 type="text"
                 name="id"
                 id="name"
@@ -41,6 +70,8 @@ const SignUp = ({ SignUp, SignUpOn }) => {
               ></input>
               <label for="name">Name</label>
               <input
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
                 type="text"
                 name="pw"
                 id="email"
@@ -61,22 +92,9 @@ const SignUp = ({ SignUp, SignUpOn }) => {
             </div>
           </div>
         </form>
-
-        {/* <video
-          id='landing-video'
-          autoPlay='autoplay'
-          loop='Loop'
-          volume='0.2'
-          muted='false'
-        >
-          <source src={landingVideo} type='video/mp4' alt={landingVideo} />
-        </video> */}
-        {/* <img id='pcLanding' src={LandingImage} alt={LandingImage} /> */}
-        {/* <img id='phone-landing' src={phoneLanding} alt={phoneLanding}></img> */}
-        {/* <img src={LandingImage} alt={LandingImage}></img> */}
       </div>
     </>
   );
-};
+}
 
 export default SignUp;
