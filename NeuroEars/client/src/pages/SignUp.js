@@ -1,13 +1,17 @@
+import Web3 from 'web3';
+// import Web3 from 'web3/dist/web3.min.js';
 import React, { useState } from 'react';
 import LandingImage from '../images/landingimage.jpg';
 // import landingVideo from "../videos/BrainNeurons.mp4";
 // import phoneLanding from "../videos/BrainNeurons.gif";
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 function SignUp() {
-  const [name, setName] = useState('');
+  // const navigate = useNavigate();
+  const history = useHistory();
   const [id, setId] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
   async function registerUser(event) {
@@ -24,8 +28,14 @@ function SignUp() {
         email,
       }),
     });
+
     const data = await resopnse.json();
-    console.log(data);
+    // console.log(data);
+    if (data.status === 'ok') {
+      alert('Sign Up sucessful!');
+      alert('Please Log in with it');
+      history.push('/login');
+    }
   }
 
   return (
@@ -63,7 +73,7 @@ function SignUp() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 type="text"
-                name="id"
+                name="name"
                 id="name"
                 autoComplete="off"
                 required
@@ -73,12 +83,12 @@ function SignUp() {
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
                 type="text"
-                name="pw"
+                name="email"
                 id="email"
                 autoComplete="off"
                 required
               ></input>
-              <label for="pw">E-mail</label>
+              <label for="email">E-mail</label>
             </div>
             <div className="signUpButtonBox">
               <Link to="/">

@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import LandingImage from '../images/landingimage.jpg';
-import { Link, Route, Switch } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../Main.css';
+import jwt from 'jsonwebtoken';
+// const jwt = require('jsonwebtoken');
 
-function MainPage() {
+const MainPage = () => {
+  const history = useHistory();
+  async function populateQuote() {
+    const req = await fetch('http://localhost:3000/mainpage', {
+      headers: {
+        'x-access-token': localStorage.getItem('token'),
+      },
+    });
+    const data = req.json();
+    console.log(data);
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const user = jwt.decode(token);
+      if (!user) {
+        alert('Check the ID or password');
+        localStorage.removeItem('token');
+        history.replace('/login');
+      } else {
+        populateQuote();
+      }
+    }
+  }, []);
   return (
     <>
       <div
@@ -47,6 +73,6 @@ function MainPage() {
       </div>
     </>
   );
-}
+};
 
 export default MainPage;
