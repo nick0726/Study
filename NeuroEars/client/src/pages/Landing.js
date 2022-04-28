@@ -14,7 +14,7 @@ function Landing() {
         {/* <img src={LandingImage} alt={LandingImage} /> */}
         <form action="">
           <div className="login-info">
-            <h1>LOGO</h1>
+            <h1>NeuroEars</h1>
             <div className="buttonBox">
               <Link to="/login">
                 <div className="logIn">

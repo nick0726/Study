@@ -47,7 +47,7 @@ function SignUp() {
         {/* <img src={LandingImage} alt={LandingImage} /> */}
         <form onSubmit={registerUser}>
           <div className="login-info">
-            <h1>LOGO</h1>
+            <h1>NeuroEars</h1>
             <div className="input-area">
               <input
                 value={id}

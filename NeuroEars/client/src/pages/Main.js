@@ -44,6 +44,20 @@ const MainPage = () => {
             <ul>
               <li>
                 <p>About us</p>
+                {/* <ul>
+                  <li>
+                    <p>A</p>
+                  </li>
+                  <li>
+                    <p>B</p>
+                  </li>
+                  <li>
+                    <p>C</p>
+                  </li>
+                  <li>
+                    <p>D</p>
+                  </li>
+                </ul> */}
               </li>
               <li>
                 <p>Solutions</p>
@@ -59,6 +73,7 @@ const MainPage = () => {
               </li>
             </ul>
           </div>
+          {/* <PhoneMenu></PhoneMenu> */}
         </div>
 
         <div className="mainIntro">
@@ -74,5 +89,26 @@ const MainPage = () => {
     </>
   );
 };
+
+/*
+function PhoneNav(props) {
+  return (
+    <>
+      <nav className="navbar">
+        <ul className="navbar-nav">{props.childern}</ul>
+      </nav>
+    </>
+  );
+}
+
+function NavItem(props) {
+  return (
+    <>
+      <li className="nav-item">
+        <a>{props.icon}</a>
+      </li>
+    </>
+  );
+} */
 
 export default MainPage;
